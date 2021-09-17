@@ -42,9 +42,9 @@ First, clone this project to your local system. You could download as a zip file
 Copy and paste on the terminal
 
 ```sh
-git clone https://github.com/foderking/Deminifier.js.git
+git clone https://github.com/foderking/Deminify.js.git
 
-cd Deminifier.js
+cd Deminify.js
 ```
 
 Then install dependencies:
