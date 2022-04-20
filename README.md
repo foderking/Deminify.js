@@ -18,7 +18,7 @@
 
 ## About <a name = "about"></a>
 
-A web application for decrypting minified javascript.
+An application for  deominifying and deobfuscating javascript source files.
 
 ## Getting Started <a name = "getting_started"></a>
 
@@ -30,10 +30,8 @@ These instructions will get you a copy of the project up and running on your loc
 Things you'll to install this project..
 
 + An Operating System with a working shell ( Bash, Powershell, zsh etc.)
-+ The latest version of Git
-+ npm
-
-
++ Git
++ Yarn
 
 ### Installing
 
@@ -41,7 +39,7 @@ First, clone this project to your local system. You could download as a zip file
 
 Copy and paste on the terminal
 
-```sh
+```bash
 git clone https://github.com/foderking/Deminify.js.git
 
 cd Deminify.js
@@ -49,36 +47,18 @@ cd Deminify.js
 
 Then install dependencies:
 
-```sh
-npm install
+```bash
+yarn
 ```
 
-To run in hot module reloading mode:
+Run the development server:
 
-```sh
-npm start
-```
-To run in dev mode
-```sh
-npm run dev
+```bash
+yarn dev
 ```
 
-To create a production build:
-
-```sh
-npm run build
-```
-
-To run tests:
-
-```sh
-npm run test
-```
-
-End with an example of getting some data out of the system or using it for a little demo.
-
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Credits
 
-+ create-react-app
-+ [react-ace](https://github.com/securingsincity/react-ace)
++ jsoverson
