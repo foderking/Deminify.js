@@ -1,6 +1,6 @@
 import { RefactorQueryAPI } from "shift-refactor/dist/src/refactor-session-chainable";
 import ast from "shift-ast";
-import "../../types/iterators"
+import "../../../types/iterators"
 
 function filterNamedArrays( node: ast.VariableDeclarator ) {
 	return (node.init as ast.ArrayExpression).elements.findIndex( element => !(element as ast.ArrayExpression).type.startsWith("Literal")) === -1

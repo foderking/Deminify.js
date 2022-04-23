@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { substituteArrayLiterals } from "../lib/deobfuscators"
+import { substituteArrayLiterals } from "./lib/deobfuscators"
 import { refactor } from "shift-refactor"
 
 type Data = string

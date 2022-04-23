@@ -3,7 +3,7 @@
 // const { substituteArrayLiterals } = require("./deobfuscators")
 
 // let obfuscated = fs.readFileSync(__dirname+"/input.js", "utf-8")
-console.log("fa")
+// console.log("fa")
 // let parsed = refactor(obfuscated)
 // substituteArrayLiterals(parsed)
 // console.log(parsed.print())

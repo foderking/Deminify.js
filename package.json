@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "ts": "ts-node /pages/lib/index.ts"
+    "lint": "next lint"
   },
   "dependencies": {
     "ace-builds": "^1.4.14",

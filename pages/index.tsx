@@ -1,15 +1,19 @@
 import type { NextPage } from 'next'
-import dynamic from 'next/dynamic'
 import Head from 'next/head'
-import Image from 'next/image'
+import dynamic from 'next/dynamic'
+// import Image from 'next/image'
 import { useState } from 'react'
 import styles from '../styles/Home.module.css'
 import RightSideBar from './components/Sidebar'
 import beautify from "js-beautify"
+import Loading from './components/Loading'
 
-const MainEditor = dynamic(
+const Editor = dynamic(
   () => import('./components/Editor'),
-  { ssr: false }
+  { 
+    loading: () => Loading({className: styles.left}),
+    ssr: false 
+  }
 )
 
 const Home: NextPage = () => {
@@ -23,7 +27,6 @@ const Home: NextPage = () => {
 
   const [code, setCode] = useState("")
 
-
   return (
     <div className={styles.container}>
       <Head>
@@ -36,7 +39,7 @@ const Home: NextPage = () => {
       </header>
 
       <main className={styles.main}>
-        <MainEditor
+        <Editor
           onChange={change}
           code={code} 
           className={styles.left}

@@ -1,7 +1,26 @@
+import dynamic from 'next/dynamic';
 import React from 'react';
-import AceEditor from "react-ace";
-import "ace-builds/src-noconflict/mode-javascript";
-import "ace-builds/src-noconflict/theme-monokai";
+// import AceEditor from "react-ace"
+// import "ace-builds/src-noconflict/mode-javascript";
+// import "ace-builds/src-noconflict/theme-monokai";
+import Loading from './Loading';
+import s from "../../styles/Home.module.css"
+
+// dynamically import module only in client
+const AceEditor = dynamic(
+	async () => {
+		const ace = await import("react-ace")
+		require("ace-builds/src-noconflict/mode-javascript")
+		require("ace-builds/src-noconflict/theme-monokai")
+		return ace
+	},
+	{
+		loading: () => Loading({className: s.left}),
+		ssr: false
+	}
+)
+
+
 
 export default function Editor({ onChange, code, className })  {
 
@@ -20,6 +39,7 @@ export default function Editor({ onChange, code, className })  {
           showPrintMargin={false}
           showGutter={true}
           highlightActiveLine={true}
+		  wrapEnabled={true}
           value={code}
           setOptions={{
 			enableBasicAutocompletion: false,
@@ -30,3 +50,4 @@ export default function Editor({ onChange, code, className })  {
 		}}/>
     );
 }
+
