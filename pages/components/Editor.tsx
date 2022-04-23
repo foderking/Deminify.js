@@ -1,8 +1,5 @@
 import dynamic from 'next/dynamic';
 import React from 'react';
-// import AceEditor from "react-ace"
-// import "ace-builds/src-noconflict/mode-javascript";
-// import "ace-builds/src-noconflict/theme-monokai";
 import Loading from './Loading';
 import s from "../../styles/Home.module.css"
 
@@ -19,8 +16,6 @@ const AceEditor = dynamic(
 		ssr: false
 	}
 )
-
-
 
 export default function Editor({ onChange, code, className })  {
 
