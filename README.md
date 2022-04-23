@@ -6,9 +6,6 @@
 
 </div>
 
-
-
-
 ## Table of Contents
 
 + [About](#about)
@@ -62,3 +59,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Credits
 
 + jsoverson
+
++ [eval deobfuscator](https://github.com/chris124567/eval-deobfuscator/)

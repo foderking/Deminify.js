@@ -1,0 +1,9 @@
+.button {
+	display: block;
+	/* border: solid white; */
+	border-width: 0px;
+	border-radius: 0;
+	background: yellow;
+	color: black;
+	font-size: 18px;
+}
