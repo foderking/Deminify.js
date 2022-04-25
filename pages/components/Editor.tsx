@@ -9,6 +9,9 @@ const AceEditor = dynamic(
 		const ace = await import("react-ace")
 		require("ace-builds/src-noconflict/mode-javascript")
 		require("ace-builds/src-noconflict/theme-monokai")
+		require("ace-builds/src-noconflict/theme-terminal")
+		require("ace-builds/src-noconflict/theme-twilight")
+		require("ace-builds/src-noconflict/ext-language_tools")
 		return ace
 	},
 	{
@@ -17,13 +20,13 @@ const AceEditor = dynamic(
 	}
 )
 
-export default function Editor({ onChange, code, className })  {
+export default function Editor({ onChange, code, className, tabsize, theme})  {
 
     return (
         <AceEditor
          placeholder="Paste code here!"
           mode="javascript"
-          theme="monokai"
+          theme={theme}
           name="blah2"
 		  height='100%'
           width='100%'
@@ -41,7 +44,7 @@ export default function Editor({ onChange, code, className })  {
 			enableLiveAutocompletion: false,
 			enableSnippets: false,
 			showLineNumbers: true,
-			tabSize: 3,
+			tabSize: tabsize,
 		}}/>
     );
 }

@@ -1,6 +1,7 @@
 import { RefactorQueryAPI } from "shift-refactor/dist/src/refactor-session-chainable";
 import ast from "shift-ast";
 import "../../../types/iterators"
+import { generateRandomString } from "./Utils";
 
 function filterNamedArrays( node: ast.VariableDeclarator ) {
 	return (node.init as ast.ArrayExpression).elements.findIndex( element => !(element as ast.ArrayExpression).type.startsWith("Literal")) === -1
@@ -22,4 +23,11 @@ export function substituteArrayLiterals(script: RefactorQueryAPI) {
 		// console.log(script.query(query))
         script.query(query).replace((node) => replaceComputedExpression(node as ast.ComputedMemberExpression, array))
     });
+}
+
+export function renameSmallVariables(script: RefactorQueryAPI) {
+    // rename all nodes with binding identifier with single letter name
+    // this includes function paramteres, variable declarations function names
+    const funcParams = script.query("BindingIdentifier[name.length=1]")
+    funcParams.forEach( node => script(`BindingIdentifier[name="${node.name}"]`).rename(generateRandomString()) )
 }

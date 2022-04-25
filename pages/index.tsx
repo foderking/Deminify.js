@@ -17,15 +17,27 @@ const Editor = dynamic(
 )
 
 const Home: NextPage = () => {
+  const [code, setCode] = useState("")
+  const [tab, setTab]   = useState("4")
+  const [current_theme, setTheme] = useState("monokai")
+
   function deminify(e){
-    setCode(beautify(code))
+    setCode(beautify(code, beautifyOptions))
   }
 
   function change(code: string) {
     setCode(code)
   } 
 
-  const [code, setCode] = useState("")
+  function handleChange(e, set){
+    set(e.target.value)
+  }
+
+  const tabOptions = ["4", "2"]
+  const themeOptions = ["monokai","twilight","terminal"]
+  const beautifyOptions = {
+    indent_size: tab
+  }
 
   return (
     <div className={styles.container}>
@@ -43,10 +55,16 @@ const Home: NextPage = () => {
           onChange={change}
           code={code} 
           className={styles.left}
+          tabsize={tab}
+          theme={current_theme}
         />
         <RightSideBar
           className={styles.right}
           click={deminify}
+          options={tabOptions}
+          handleChange={(e) => handleChange(e, setTab)}
+          theme_options={themeOptions}
+          themeChange={(e) => handleChange(e, setTheme)}
         />
       </main>
     </div>
