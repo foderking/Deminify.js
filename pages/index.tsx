@@ -1,13 +1,13 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
-// import Image from 'next/image'
+import Image from 'next/image'
 import React, { useState } from 'react'
 import styles from '../styles/Home.module.css'
 import RightSideBar from './components/Sidebar'
-import beautify from "js-beautify"
 import Loading from './components/Loading'
 import Spinner from './components/Spinner'
+import { reqData } from './api/parse'
 
 const Editor = dynamic(
   () => import('./components/Editor'),
@@ -22,9 +22,35 @@ const Home: NextPage = () => {
   const [tab, setTab]   = useState("4")
   const [current_theme, setTheme] = useState("monokai")
   const [rename_vars, setRenameVars] = useState(false)
+  const [spin, setSpin] = useState(false)
+
 
   function deminify(e){
-    setCode(beautify(code, beautifyOptions))
+    e.preventDefault()
+
+    const request: reqData = {
+      renameVars: rename_vars,
+      text: code,
+      tabSize: Number(tab)
+    }
+    // setCode("")
+    setSpin(true)
+    fetch("/api/parse", {
+      method: "POST",
+      body: JSON.stringify(request)
+    })
+    .then(
+      data => data.json()
+    )
+    .then(
+      data => setCode(data.data)
+    )
+    .catch (
+      err => console.log("error", err)
+    )
+    .finally(
+      () => setSpin(false)
+    )
   }
 
   function change(code: string) {
@@ -37,9 +63,7 @@ const Home: NextPage = () => {
 
   const tabOptions = ["4", "2"]
   const themeOptions = ["monokai","twilight","terminal"]
-  const beautifyOptions = {
-    indent_size: tab
-  }
+  // console.log("asdfasfsd")  
 
   return (
     <div className={styles.container}>
@@ -50,10 +74,15 @@ const Home: NextPage = () => {
       </Head>
 
       <header className={styles.header}>
+        <Image src="/logo.svg"
+          width={50} 
+          height={50}
+          alt="logo"
+        />
       </header>
 
       <main className={styles.main}>
-        <Spinner />
+        { spin && <Spinner /> }
         <Editor
           onChange={change}
           code={code} 
@@ -68,7 +97,7 @@ const Home: NextPage = () => {
           handleChange={(e) => handleChange(e, setTab)}
           theme_options={themeOptions}
           themeChange={(e) => handleChange(e, setTheme)}
-          checkName={"rename short variables"}
+          checkName={"Rename Variables"}
           checkValue={rename_vars}
           checkOnchange={(e) => setRenameVars(!rename_vars)}
         />
