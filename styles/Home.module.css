@@ -13,12 +13,13 @@
 }
 
 .left {
-  flex: 1 1 70%;
+  flex: 1 1 auto;
 }
 
 .right {
-  flex: 1 1 30%;
+  flex: 0 0 22em;
   border-top: 3px solid #272822;
+  display: flex;
 }
 
 .header {

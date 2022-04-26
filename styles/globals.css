@@ -16,15 +16,26 @@ a {
 }
 
 .dropdown {
-  color:antiquewhite;
-  display: flex;
-  flex-direction: row;
-  width: 10em;
+  margin-bottom: 20px;
+}
+
+.checkbox {
+  margin-bottom: 10px;
 }
 
 .dropdown > label {
-  flex: 1 1 auto;
+  /* flex: 1 1 auto; */
+  display: block;
+  margin-bottom: 5px;
 }
 .dropdown > select {
-  flex: 0 0 auto;
+  /* flex: 0 0 auto; */
+  display: block;
+  width: 100%;
+  border-radius: 0px;
+  /* border-width: 0px; */
+  border-width: 1px 1px 1px 1px;
+  box-shadow: none;
+  /* background-color: white; */
+  font-size: inherit;
 }

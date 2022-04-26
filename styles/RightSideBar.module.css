@@ -1,9 +1,46 @@
 .button {
-	display: block;
+	margin: 5px;
+	flex: 0 0 auto;
+	justify-content: center;
 	/* border: solid white; */
 	border-width: 0px;
 	border-radius: 0;
-	background: yellow;
+	background: #666;
+	color: whitesmoke;
+	height: 2em;
+	width: 5em;
+	font-size: 16px;
+}
+
+.navbar {
+	flex: 0 0 3em;
+	display: flex;
+	flex-direction: column;
+}
+.active {
+	background-color: white;
+}
+.navbar > span {
+	flex: 0 0 3em;
+}
+
+.main {
+	flex: 1 0 auto;
+	background-color: white;
 	color: black;
-	font-size: 18px;
+	padding: 2em;
+	color: #666;
+}
+
+.main > h3 {
+    font-size: 32px;
+    font-weight: 200;
+    margin: 0 0 18px;
+	text-align: center;
+}
+
+.center {
+	display: flex;
+	justify-content: center;
+	/* font-size: small; */
 }

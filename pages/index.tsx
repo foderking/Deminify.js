@@ -9,8 +9,7 @@ import Loading from './components/Loading'
 import Spinner from './components/Spinner'
 import { reqData } from './api/parse'
 
-const Editor = dynamic(
-  () => import('./components/Editor'),
+const Editor = dynamic( () => import('./components/Editor'),
   { 
     loading: () => Loading({className: styles.left}),
     ssr: false 
@@ -21,13 +20,12 @@ const Home: NextPage = () => {
   const [code, setCode] = useState("")
   const [tab, setTab]   = useState("4")
   const [current_theme, setTheme] = useState("monokai")
-  const [rename_vars, setRenameVars] = useState(false)
+  const [rename_vars, setRenameVars] = useState(true)
   const [spin, setSpin] = useState(false)
 
 
   function deminify(e){
     e.preventDefault()
-
     const request: reqData = {
       renameVars: rename_vars,
       text: code,
@@ -35,22 +33,22 @@ const Home: NextPage = () => {
     }
     // setCode("")
     setSpin(true)
+
     fetch("/api/parse", {
       method: "POST",
       body: JSON.stringify(request)
-    })
-    .then(
-      data => data.json()
-    )
-    .then(
-      data => setCode(data.data)
-    )
-    .catch (
-      err => console.log("error", err)
-    )
-    .finally(
-      () => setSpin(false)
-    )
+    }).then(
+        data => data.json()
+      )
+      .then(
+        data => setCode(data.data)
+      )
+      .catch (
+        err => console.log("error", err)
+      )
+      .finally(
+        () => setSpin(false)
+      )
   }
 
   function change(code: string) {
@@ -75,8 +73,8 @@ const Home: NextPage = () => {
 
       <header className={styles.header}>
         <Image src="/logo.svg"
-          width={50} 
-          height={50}
+          width="40px"
+          height="40px"
           alt="logo"
         />
       </header>
