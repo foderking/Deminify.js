@@ -14,3 +14,17 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.dropdown {
+  color:antiquewhite;
+  display: flex;
+  flex-direction: row;
+  width: 10em;
+}
+
+.dropdown > label {
+  flex: 1 1 auto;
+}
+.dropdown > select {
+  flex: 0 0 auto;
+}

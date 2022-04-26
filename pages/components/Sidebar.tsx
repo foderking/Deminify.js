@@ -1,8 +1,9 @@
 import React from 'react'
 import styles from "../../styles/RightSideBar.module.css"
+import Checkbox from './Checkbox'
 import Dropdown from './Dropdown'
 
-export default function RightSideBar({ className, click, options, handleChange, theme_options, themeChange }) {
+export default function RightSideBar({ className, click, options, handleChange, theme_options, themeChange, checkName, checkValue, checkOnchange }) {
 	return (
 		<div className={className}>
 			<button
@@ -12,6 +13,7 @@ export default function RightSideBar({ className, click, options, handleChange, 
 			>Deminify</button>
 			<Dropdown items={options} name={"Tab Size"} onChange={handleChange} />
 			<Dropdown items={theme_options} name={"Theme"} onChange={themeChange} />
+			<Checkbox value={checkValue} name={checkName} onChange={checkOnchange} />
 		</div>
 	)
 }

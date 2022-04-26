@@ -23,6 +23,7 @@ const AceEditor = dynamic(
 export default function Editor({ onChange, code, className, tabsize, theme})  {
 
     return (
+		<>
         <AceEditor
          placeholder="Paste code here!"
           mode="javascript"
@@ -45,7 +46,9 @@ export default function Editor({ onChange, code, className, tabsize, theme})  {
 			enableSnippets: false,
 			showLineNumbers: true,
 			tabSize: tabsize,
+			useWorker: false,
 		}}/>
+	  </>
     );
 }
 
