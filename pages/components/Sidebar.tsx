@@ -15,7 +15,6 @@ export default function RightSideBar({ className, click, options, handleChange, 
 				<Dropdown items={options}    name={"Tab Size"} onChange={handleChange} />
 				<Dropdown items={theme_options} name={"Theme"} onChange={themeChange}  />
 				<Checkbox value={checkValue} name={checkName} onChange={checkOnchange} />
-				<Checkbox value={checkValue} name={checkName} onChange={checkOnchange} />
 				<div className={styles.center}>
 					<button onClick={click} type="button" className={styles.button} >
 						Deminify

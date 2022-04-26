@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 import RightSideBar from './components/Sidebar'
 import Loading from './components/Loading'
@@ -23,6 +23,23 @@ const Home: NextPage = () => {
   const [rename_vars, setRenameVars] = useState(true)
   const [spin, setSpin] = useState(false)
 
+  useEffect( () => {
+    fetch("/api/parse", {
+      method: "GET",
+    }).then(
+        data => data.json()
+      )
+      .then(
+        data => setCode(data.data)
+      )
+      .catch (
+        err => console.log("error", err)
+      )
+      .finally(
+        () => setSpin(false)
+      )
+ 
+  }, [])
 
   function deminify(e){
     e.preventDefault()
