@@ -1,0 +1,27 @@
+.container {
+  background-color: #30353e;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.main {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+  height: max-content;
+}
+
+.left {
+  flex: 1 1 auto;
+}
+
+.right {
+  flex: 0 0 22em;
+  border-top: 3px solid #272822;
+  display: flex;
+}
+
+.header {
+  flex: 0 0 3em
+}
