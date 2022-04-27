@@ -1,11 +1,5 @@
 <h2 align="center">Deminify.js</h2>
 
-<div align="center">
-
-  [![Status](https://img.shields.io/badge/status-active-success.svg)]() 
-
-</div>
-
 ## Table of Contents
 
 + [About](#about)
@@ -15,8 +9,13 @@
 
 ## About <a name = "about"></a>
 
-An application for  deominifying and deobfuscating javascript source files.
+An application for  deminifying and deobfuscating javascript source files.
 
+*Before Deminification*
+![image](example/demin-1.jpg)
+
+*After Deminification*
+![image](example/demin-2.jpg)
 ## Getting Started <a name = "getting_started"></a>
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
